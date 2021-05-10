@@ -41,12 +41,14 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Variables
         FILE_PATH_TOMATT = Application.dataPath + FILE_TOMATT;
         
         FILE_PATH_LEVELS = Application.dataPath + FILE_LEVELS;
         string fileContents = File.ReadAllText(FILE_PATH_LEVELS);
         string[] filelevels = fileContents.Split(',');
 
+        //shufflebag
         bag = new ShuffleBag<string>();
 
         for (int i = 0; i < filelevels.Length; i++)
@@ -57,10 +59,11 @@ public class GameManager : MonoBehaviour
         Camera.main.transform.position = (maincanvas.transform.position - offset);
         //Debug.Log(filelevels[11]);
         
-        string startinghi = "Hi Matt! \n";
-        File.WriteAllText(FILE_PATH_TOMATT, startinghi);
+        //string startinghi = "Hi Matt! \n";
+        //File.WriteAllText(FILE_PATH_TOMATT, startinghi);
     }
 
+    //make buttons that load a random scene
     public void ButtonPress(GameObject here)
     {
         string result = "";
@@ -70,6 +73,7 @@ public class GameManager : MonoBehaviour
         Destroy(here);
     }
 
+    //used on byebutton
     public void Return()
     {
         Camera.main.transform.position = (maincanvas.transform.position - offset);
@@ -81,6 +85,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //update the text for Matt
     private void Update()
     {
         tomatt.text = File.ReadAllText(FILE_PATH_TOMATT);

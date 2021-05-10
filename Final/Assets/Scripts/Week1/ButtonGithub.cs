@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ButtonGithub : MonoBehaviour
 {
+   //Variables
    public Text text;
    public GameObject push;
    public GameObject bye;
@@ -15,7 +16,9 @@ public class ButtonGithub : MonoBehaviour
 
    private void Start()
    {
+      //turn off the text
       text.enabled = false;
+      //move the camera and singletonMatt
       Camera.main.transform.position = (canvas.transform.position - new Vector3(0,0,821));
       if (startsing.instance.activeSelf == true)
       {
@@ -24,6 +27,7 @@ public class ButtonGithub : MonoBehaviour
       }
    }
 
+   //used on the button
    public void Github()
    {
       text.enabled = true;

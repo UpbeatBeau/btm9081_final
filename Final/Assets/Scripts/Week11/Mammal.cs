@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Mammal : Organism
 {
-   public string reproduces;
+   //variables
+    public string reproduces;
 
-   public Mammal(string carbon, string reproduces) :
+   //make the mammal subclass of Organism
+    public Mammal(string carbon, string reproduces) :
        base(carbon)
    {
        this.reproduces = reproduces;
-       this.type = "mammal";
+       this.type = "Mammal";
    }
 
-   public override string showRecord()
+   //override to show the new things
+    public override string showRecord()
    {
        return base.showRecord() + "Reproduces: " + reproduces + "\n";
    }

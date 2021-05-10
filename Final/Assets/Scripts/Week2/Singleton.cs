@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Singleton : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Variables
     public GameObject canvas;
     public GameObject cantmattParker;
     
     
     void Start()
     {
-        
+        //move the camera to the canvas
         Camera.main.transform.position = (canvas.transform.position - new Vector3(0, 0, 821));
+        //move singletonMatt to the lower left if you have already tried to add more matts
         if (startsing.instance.activeSelf == true)
         {
             if (startsing.instance.GetComponent<startsing>().second == false)
@@ -25,6 +26,7 @@ public class Singleton : MonoBehaviour
         
     }
 
+    //make a random thing appear that says you can not add another
     public void MakeMattParker()
     {
         startsing.instance.GetComponent<startsing>().second = false;

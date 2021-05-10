@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class savesytemmanager : MonoBehaviour
 {
+    //Variables
     public GameObject canvas;
     public string inputtext;
     
@@ -15,8 +16,10 @@ public class savesytemmanager : MonoBehaviour
     
     void Start()
     {
+        //File path
         FILE_PATH_TOMATT = Application.dataPath + FILE_TOMATT;
         
+        //move the camera and singletonMatt!
         Camera.main.transform.position = (canvas.transform.position - new Vector3(0,0,821));
         if (startsing.instance.activeSelf == true)
         {

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class MoreDataManager : MonoBehaviour
 {
+    //variables
     public GameObject canvas;
 
     public float gameTime = 10;
@@ -15,7 +16,10 @@ public class MoreDataManager : MonoBehaviour
     public GameObject byebutton;
     private void Start()
     {
+        //move the camera to the canvas
         Camera.main.transform.position = (canvas.transform.position - new Vector3(0,0,621));
+        
+        //move SingletonMatt to lower left hand corner
         if (startsing.instance.activeSelf == true)
         {
             startsing.instance.transform.localScale = new Vector3(5f, 5f, 5f);
@@ -29,13 +33,16 @@ public class MoreDataManager : MonoBehaviour
 
     private void Update()
     {
+        //make a timer
         timer += Time.deltaTime;
 
+        //if you are done waiting activate the button and display this
         if (!waiting)
         {
             displaytext.text = "Now back to class!";
             byebutton.SetActive(true);
         }
+        //while waiting display this and the timer
         else
         {
             displaytext.text =
@@ -44,6 +51,7 @@ public class MoreDataManager : MonoBehaviour
 
         }
 
+        //make it so the game lasts as long as the timer
         if (gameTime < timer && waiting)
         {
             waiting = false;
